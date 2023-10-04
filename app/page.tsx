@@ -15,7 +15,7 @@ const menuStyle = {
   display: 'flex',
   justifyContent: 'center',
   backgroundColor: 'transparent',
-  color: "white"
+  color: "white",
 }
 const titleStyle = {
   fontWeight: 'bold', color: 'white'
@@ -48,8 +48,8 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/bg.jpg')" }} />
 
         <Layout >
-          <Header style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
-            <Col sm={12} md={8} lg={5}>
+          <Header style={{ display: 'flex', marginTop: '20px' }}>
+            <Col sm={12} md={8} lg={4} >
               <Title style={titleStyle} level={2}>TRAVELKUY</Title>
             </Col>
             <Col sm={5} md={5} lg={5} className='hidden md:block  lg:block '>
@@ -82,9 +82,10 @@ const Home: React.FC = () => {
         </Layout>
 
 
-        <Row className='mt-20 m-10'>
+        <Row className='mt-20 m-10 ml-20'>
           <Col span={20}>
-            <Title style={titleStyle}>JOURNEY <br />BALI ISLAND</Title>
+            <Title style={{ ...titleStyle, fontFamily: "sans-serif" }}>JOURNEY <br />BALI ISLAND</Title>
+
           </Col>
           <Col span={4}>
             <Menu mode='vertical' style={{ backgroundColor: 'transparent', textAlign: 'right' }}>
