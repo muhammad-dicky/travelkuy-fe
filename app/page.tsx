@@ -9,6 +9,7 @@ import Sider from 'antd/es/layout/Sider'
 import { grey } from '@ant-design/colors'
 import { useState, useEffect } from 'react'
 import { AlignRightOutlined, ArrowDownOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons'
+import dynamic from 'next/dynamic'
 
 const { Title, Text } = Typography;
 const menuStyle = {
@@ -41,7 +42,9 @@ const Home: React.FC = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   }
+
   useEffect(() => {
+
     var timer = setInterval(() => setDate(new Date()), 1000)
     return function cleanup() {
       clearInterval(timer)
@@ -92,8 +95,10 @@ const Home: React.FC = () => {
 
         <Row className='mt-20 m-10 ml-20'>
           <Col span={20}>
-            <p>{date.toLocaleString()}</p>
-
+            <div style={{
+              backgroundColor: 'rgba(128, 128, 128, 0.5)', display: 'inline-block', borderRadius: '20px', padding: '10px', fontSize: "12px", color: "white"
+            }} ><p suppressHydrationWarning >{date.toLocaleString()}</p>
+            </div>
             <Title style={{ ...titleStyle, fontFamily: "sans-serif", fontSize: "50px" }}>JOURNEY <br />BALI ISLAND</Title>
             <Button style={{ borderRadius: "20px", backgroundColor: "white", fontWeight: "bold" }}>BOOKING NOW</Button>
           </Col>
