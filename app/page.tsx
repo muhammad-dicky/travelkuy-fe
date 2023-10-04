@@ -7,7 +7,7 @@ import { Button, Col, DatePicker, Menu, Modal, Row, Space, Typography, theme } f
 import Layout, { Content, Footer, Header } from 'antd/es/layout/layout'
 import Sider from 'antd/es/layout/Sider'
 import { grey } from '@ant-design/colors'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AlignRightOutlined, ArrowDownOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons'
 
 const { Title, Text } = Typography;
@@ -28,6 +28,7 @@ const iconStyleHeader = {
 const Home: React.FC = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  var [date, setDate] = useState(new Date());
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -40,6 +41,12 @@ const Home: React.FC = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   }
+  useEffect(() => {
+    var timer = setInterval(() => setDate(new Date()), 1000)
+    return function cleanup() {
+      clearInterval(timer)
+    }
+  });
 
 
   return (
@@ -82,10 +89,13 @@ const Home: React.FC = () => {
         </Layout>
 
 
+
         <Row className='mt-20 m-10 ml-20'>
           <Col span={20}>
-            <Title style={{ ...titleStyle, fontFamily: "sans-serif" }}>JOURNEY <br />BALI ISLAND</Title>
+            <p>{date.toLocaleString()}</p>
 
+            <Title style={{ ...titleStyle, fontFamily: "sans-serif", fontSize: "50px" }}>JOURNEY <br />BALI ISLAND</Title>
+            <Button style={{ borderRadius: "20px", backgroundColor: "white", fontWeight: "bold" }}>BOOKING NOW</Button>
           </Col>
           <Col span={4}>
             <Menu mode='vertical' style={{ backgroundColor: 'transparent', textAlign: 'right' }}>
