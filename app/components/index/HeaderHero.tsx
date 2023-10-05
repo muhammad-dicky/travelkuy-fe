@@ -48,9 +48,11 @@ export default function HeaderHero() {
             <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/bg.jpg')" }} />
 
             <Layout >
+
                 <Header style={{ display: 'flex', marginTop: '20px' }}>
+
                     <Col sm={12} md={8} lg={4} >
-                        <Title style={titleStyle} level={2}>TRAVELKUY</Title>
+                        <Title style={titleStyle} level={3}>TRAVELKUY</Title>
                     </Col>
                     <Col sm={5} md={5} lg={5} className='hidden md:block  lg:block '>
                         <Menu mode='horizontal' style={menuStyle}>
@@ -83,7 +85,7 @@ export default function HeaderHero() {
 
 
 
-            <Row className='mt-20 m-10 ml-20'>
+            <Row className='mt-20 m-10 ml-15 md:ml-24'>
                 <Col span={20}>
                     <div style={{
                         backgroundColor: 'rgba(128, 128, 128, 0.5)', display: 'inline-block', borderRadius: '20px', padding: '10px', fontSize: "12px", color: "white"

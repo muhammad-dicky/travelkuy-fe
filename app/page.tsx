@@ -33,13 +33,13 @@ const Home: React.FC = () => {
         <HeaderHero />
 
 
-        <Row>
-          <Col span={12}>wasdasd</Col>
-          <Col span={12}>wasdasd</Col>
+        <Row className='mt-20 m-10 ml-20' style={{ backgroundColor: "tomato" }}>
+          <Col className='ContentLeft' span={12}>wasdasd</Col>
+          <Col className='ContentRight hidden md:block  lg:block' span={12}>wasdasd</Col>
         </Row>
 
       </Layout >
-      <Footer>in footer</Footer>
+      <Footer style={{ color: "grey" }}>in footer</Footer>
 
 
 
