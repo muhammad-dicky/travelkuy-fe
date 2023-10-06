@@ -14,15 +14,15 @@ const { Title, Text } = Typography;
 export const CardImageTitle = () => {
     return (
         <Row className='mt-20'>
-            <Col span={2} lg={3} ></Col>
-            <Col span={12} md={11} lg={11}>
+            <Col span={2} lg={4} ></Col>
+            <Col span={12} md={11} lg={8}>
                 <p>Best location</p>
                 <Title style={{ fontWeight: 'bold' }}>Indonesian tourism</Title>
             </Col>
             <Col span={8} md={9} lg={8}>
                 Extraordinary natural beauty, enjoy the rich culture, and experience the friendliness of the local people.
             </Col>
-            <Col span={2}></Col>
+            <Col span={4}></Col>
         </Row>
     )
 }
