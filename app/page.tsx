@@ -11,7 +11,7 @@ import { AlignRightOutlined, ArrowDownOutlined, FacebookOutlined, InstagramOutli
 import dynamic from 'next/dynamic'
 import HeaderHero from './components/index/HeaderHero'
 import CardList from './components/Posts/CardList'
-import { CardImageSmall, CardImageBig } from './components/index/CardImage'
+import { CardImage } from './components/index/CardImage'
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
@@ -23,23 +23,7 @@ const Home: React.FC = () => {
     <>
       <Layout>
         <HeaderHero />
-
-        {/* batas atas  */}
-        <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
-          <div className="-m-1 flex flex-wrap md:-m-2">
-            <div className="flex w-1/2 flex-wrap">
-              <CardImageSmall imageUrl='/card1.jpg' title='Bromo, East Java' description='Bromo Tengger Tour' />
-              <CardImageSmall imageUrl='/card2.jpg' title='Bromo, East Java' description='Bromo Tengger Tour' />
-
-              <CardImageBig imageUrl='/card3.jpg' title='wasd' description='wasd' />
-            </div>
-            <div className="flex w-1/2 flex-wrap">
-              <CardImageBig imageUrl='/card4.jpg' title='wasd' description='wasd' />
-              <CardImageSmall imageUrl='/card5.jpg' title='Bromo, East Java' description='Bromo Tengger Tour' />
-              <CardImageSmall imageUrl='/card6.jpg' title='Bromo, East Java' description='Bromo Tengger Tour' />
-            </div>
-          </div>
-        </div>
+        <CardImage />
 
 
 
