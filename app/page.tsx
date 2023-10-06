@@ -11,7 +11,7 @@ import { AlignRightOutlined, ArrowDownOutlined, FacebookOutlined, InstagramOutli
 import dynamic from 'next/dynamic'
 import HeaderHero from './components/index/HeaderHero'
 import CardList from './components/Posts/CardList'
-import { CardImage } from './components/index/CardImage'
+import { CardImage, CardImageTitle } from './components/index/CardImage'
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
@@ -23,17 +23,11 @@ const Home: React.FC = () => {
     <>
       <Layout>
         <HeaderHero />
+        <CardImageTitle />
         <CardImage />
 
 
-        <Row>
-          <Col span={12}>
-            wasd
-          </Col>
-          <Col span={12}>
-            wasd
-          </Col>
-        </Row>
+
 
 
 

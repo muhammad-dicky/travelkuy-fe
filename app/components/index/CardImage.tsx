@@ -1,3 +1,4 @@
+import { Col, Row, Typography } from 'antd';
 import React from 'react'
 
 interface CardImageSmallProps {
@@ -8,10 +9,27 @@ interface CardImageBigProps {
     title: string;
     description: string;
 }
+const { Title, Text } = Typography;
+
+export const CardImageTitle = () => {
+    return (
+        <Row className='mt-20'>
+            <Col span={2} lg={3} ></Col>
+            <Col span={12} md={11} lg={11}>
+                <p>Best location</p>
+                <Title style={{ fontWeight: 'bold' }}>Indonesian tourism</Title>
+            </Col>
+            <Col span={8} md={9} lg={8}>
+                Extraordinary natural beauty, enjoy the rich culture, and experience the friendliness of the local people.
+            </Col>
+            <Col span={2}></Col>
+        </Row>
+    )
+}
 
 export const CardImage = () => {
     return (
-        <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
+        <div className="container mx-auto px-5 py-0 lg:px-32 lg:pt-24">
             <div className="-m-1 flex flex-wrap md:-m-2">
                 <div className="flex w-1/2 flex-wrap">
                     <CardImageSmall imageUrl='/card1.jpg' />
