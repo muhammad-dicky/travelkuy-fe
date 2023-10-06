@@ -26,6 +26,14 @@ const Home: React.FC = () => {
         <CardImage />
 
 
+        <Row>
+          <Col span={12}>
+            wasd
+          </Col>
+          <Col span={12}>
+            wasd
+          </Col>
+        </Row>
 
 
 
