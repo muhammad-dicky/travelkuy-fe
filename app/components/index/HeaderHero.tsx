@@ -88,7 +88,7 @@ export default function HeaderHero() {
             <Row className='mt-20 m-10 ml-15 md:ml-24'>
                 <Col span={20}>
                     <div style={{
-                        backgroundColor: 'rgba(128, 128, 128, 0.5)', display: 'inline-block', borderRadius: '20px', padding: '10px', fontSize: "12px", color: "white"
+                        backgroundColor: 'rgba(0, 71, 79, 0.7)', display: 'inline-block', borderRadius: '20px', padding: '10px', fontSize: "12px", color: "white"
                     }} ><p suppressHydrationWarning >{date.toLocaleString()}</p>
                     </div>
                     <Title style={{ ...titleStyle, fontFamily: "sans-serif", fontSize: "50px" }}>JOURNEY <br />BALI ISLAND</Title>
