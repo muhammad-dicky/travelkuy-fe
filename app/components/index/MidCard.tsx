@@ -7,6 +7,10 @@ import { Card, Carousel, Col, Row, Typography } from 'antd';
 
 const { Title, Text } = Typography;
 
+const imageCarousel = {
+    borderRadius: 15,
+}
+
 const cardStyle = {
     backgroundColor: 'transparent'
 }
@@ -74,7 +78,7 @@ export const MidCard: React.FC = () => {
                     <Carousel autoplay>
                         {imgCarousel.map((content, index) => (
                             <div key={index}>
-                                <img src={content.url} alt="" />
+                                <img src={content.url} alt="" style={imageCarousel} />
                             </div>
                         ))}
                     </Carousel>

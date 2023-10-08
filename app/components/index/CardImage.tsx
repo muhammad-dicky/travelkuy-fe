@@ -11,6 +11,8 @@ interface CardImageBigProps {
 }
 const { Title, Text } = Typography;
 
+
+
 export const CardImageTitle = () => {
     return (
         <Row className='mt-20'>
@@ -19,8 +21,24 @@ export const CardImageTitle = () => {
                 <p>Best location</p>
                 <Title style={{ fontWeight: 'bold' }}>Indonesian tourism</Title>
             </Col>
-            <Col span={8} md={9} lg={8}>
+            <Col className='ml-1' span={8} md={9} lg={8}>
                 Extraordinary natural beauty, enjoy the rich culture, and experience the friendliness of the local people.
+            </Col>
+            <Col span={4}></Col>
+        </Row>
+    )
+}
+
+export const CardImageTitleDestination = () => {
+    return (
+        <Row className='mt-20'>
+            <Col span={2} lg={4} ></Col>
+            <Col span={12} md={11} lg={8}>
+                <p>Tour packages</p>
+                <Title style={{ fontWeight: 'bold' }}>Our tourist destination</Title>
+            </Col>
+            <Col className='ml-1' span={8} md={9} lg={8}>
+                Our tourist destinations offer an unrivaled blend of natural beauty and cultural richness.
             </Col>
             <Col span={4}></Col>
         </Row>
