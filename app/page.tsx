@@ -42,12 +42,54 @@ import slide_image_7 from './assets/images/card1.jpg';
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
-
+interface imgCardCarousel {
+  url: string;
+  rating: string;
+  price: string;
+  description: string;
+}
 
 
 const Home: React.FC = () => {
 
-
+  const imgCardCarousel: imgCardCarousel[] = [
+    {
+      url: '/potrait1.jpg',
+      rating: '4.9',
+      price: '$285',
+      description: 'Bali Tour Package'
+    },
+    {
+      url: '/potrait2.jpg',
+      rating: '4',
+      price: '$340',
+      description: 'Baliiiii'
+    },
+    {
+      url: '/potrait3.jpg',
+      rating: '3.5',
+      price: '$200',
+      description: 'wasadasd',
+    },
+    {
+      url: '/potrait4.jpg',
+      rating: '2.0',
+      price: '$100',
+      description: 'awdjkgsnskfjn'
+    },
+    {
+      url: '/potrait5.jpg',
+      rating: '1.0',
+      price: '$500',
+      description: 'edsdimid'
+    },
+    {
+      url: '/potrait6.jpg',
+      rating: '4.3',
+      price: '$100',
+      description: 'bromo'
+    },
+  ];
 
 
   return (
@@ -86,27 +128,22 @@ const Home: React.FC = () => {
             modules={[EffectCoverflow, Pagination, Navigation]}
             className="swiper_container"
           >
-            <SwiperSlide>
-              <img src='/potrait1.jpg' alt="slide_image" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/potrait1.jpg' alt="slide_image" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/potrait1.jpg' alt="slide_image" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/potrait1.jpg' alt="slide_image" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/potrait1.jpg' alt="slide_image" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/potrait1.jpg' alt="slide_image" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/potrait1.jpg' alt="slide_image" />
-            </SwiperSlide>
+            {imgCardCarousel.map((content, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <div className='relative' style={{ borderRadius: '30px' }}>
+
+                    <img src={content.url} alt="" />
+                    <p className='absolute  p-3 m-2' style={{ backgroundColor: 'rgba(0, 71, 79, 0.7)', borderRadius: '20px', top: '0', left: '0', color: 'white' }}>
+                      {content.rating}
+                    </p>
+                    <div className='absolute  p-3  m-2' style={{ backgroundColor: 'rgba(0, 71, 79, 0.7)', borderRadius: '20px', bottom: '0', left: '0', width: '80%', color: 'white' }}>
+                      <p>{content.price}</p>
+                      <p>{content.description}</p>
+                    </div></div>
+                </SwiperSlide>
+              );
+            })}
 
 
           </Swiper>
@@ -116,178 +153,11 @@ const Home: React.FC = () => {
 
 
 
+        <button className='btn' style={{ color: 'white', }}>wasd</button>
 
 
 
 
-
-
-        <Carousel>
-          <div className="container mx-auto px-5 py-0 lg:px-32 lg:pt-24">
-            <div className="-m-1 flex flex-wrap md:-m-2">
-
-              <div className="flex w-1/3 flex-wrap">
-                <div className="w-full p-1 md:p-2">
-                  <div className='relative group'>
-                    <img
-                      alt="gallery"
-                      className="block h-full w-full rounded-lg object-cover object-center transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray"
-                      src='/potrait1.jpg' />
-                    <div className='absolute bottom-0 left-0 w-full text-white p-2'>
-                      <p >
-                        Bromo,
-                      </p>
-                      <p style={{ fontWeight: 'bold' }}>
-                        wasdasdasdasd
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex w-1/3 flex-wrap">
-                <div className="w-full p-1 md:p-2">
-                  <div className='relative group'>
-                    <img
-                      alt="gallery"
-                      className="block h-full w-full rounded-lg object-cover object-center transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray"
-                      src='/potrait1.jpg' />
-                    <div className='absolute bottom-0 left-0 w-full text-white p-2'>
-                      <p >
-                        Bromo,
-                      </p>
-                      <p style={{ fontWeight: 'bold' }}>
-                        wasdasdasdasd
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex w-1/3 flex-wrap">
-                <div className="w-full p-1 md:p-2">
-                  <div className='relative group'>
-                    <img
-                      alt="gallery"
-                      className="block h-full w-full rounded-lg object-cover object-center transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray"
-                      src='/potrait1.jpg' />
-                    <div className='absolute bottom-0 left-0 w-full text-white p-2'>
-                      <p >
-                        Bromo,
-                      </p>
-                      <p style={{ fontWeight: 'bold' }}>
-                        wasdasdasdasd
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex w-1/3 flex-wrap">
-                <div className="w-full p-1 md:p-2">
-                  <div className='relative group'>
-                    <img
-                      alt="gallery"
-                      className="block h-full w-full rounded-lg object-cover object-center transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray"
-                      src='/potrait1.jpg' />
-                    <div className='absolute bottom-0 left-0 w-full text-white p-2'>
-                      <p >
-                        Bromo,
-                      </p>
-                      <p style={{ fontWeight: 'bold' }}>
-                        wasdasdasdasd
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </Carousel>
-
-
-
-
-
-
-        {/* <div className="container mx-auto px-5 py-0 lg:px-32 lg:pt-24">
-          <div className="-m-1 flex flex-wrap md:-m-2">
-
-            <div className="flex w-1/3 flex-wrap">
-              <div className="w-full p-1 md:p-2">
-                <div className='relative group'>
-                  <img
-                    alt="gallery"
-                    className="block h-full w-full rounded-lg object-cover object-center transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray"
-                    src='/potrait1.jpg' />
-                  <div className='absolute bottom-0 left-0 w-full text-white p-2'>
-                    <p >
-                      Bromo,
-                    </p>
-                    <p style={{ fontWeight: 'bold' }}>
-                      wasdasdasdasd
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex w-1/3 flex-wrap">
-              <div className="w-full p-1 md:p-2">
-                <div className='relative group'>
-                  <img
-                    alt="gallery"
-                    className="block h-full w-full rounded-lg object-cover object-center transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray"
-                    src='/potrait1.jpg' />
-                  <div className='absolute bottom-0 left-0 w-full text-white p-2'>
-                    <p >
-                      Bromo,
-                    </p>
-                    <p style={{ fontWeight: 'bold' }}>
-                      wasdasdasdasd
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex w-1/3 flex-wrap">
-              <div className="w-full p-1 md:p-2">
-                <div className='relative group'>
-                  <img
-                    alt="gallery"
-                    className="block h-full w-full rounded-lg object-cover object-center transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray"
-                    src='/potrait1.jpg' />
-                  <div className='absolute bottom-0 left-0 w-full text-white p-2'>
-                    <p >
-                      Bromo,
-                    </p>
-                    <p style={{ fontWeight: 'bold' }}>
-                      wasdasdasdasd
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex w-1/3 flex-wrap">
-              <div className="w-full p-1 md:p-2">
-                <div className='relative group'>
-                  <img
-                    alt="gallery"
-                    className="block h-full w-full rounded-lg object-cover object-center transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray"
-                    src='/potrait1.jpg' />
-                  <div className='absolute bottom-0 left-0 w-full text-white p-2'>
-                    <p >
-                      Bromo,
-                    </p>
-                    <p style={{ fontWeight: 'bold' }}>
-                      wasdasdasdasd
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div> */}
 
 
 
