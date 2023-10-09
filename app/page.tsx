@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Posts from './posts/page'
-import { Button, Card, Carousel, Col, DatePicker, Menu, Modal, Row, Space, Typography, theme, Radio } from 'antd'
+import { Button, Card, Carousel, Col, DatePicker, Menu, Modal, Row, Space, Typography, theme, Radio, Rate } from 'antd'
 import Layout, { Content, Footer, Header } from 'antd/es/layout/layout'
 import Sider from 'antd/es/layout/Sider'
 import { grey } from '@ant-design/colors'
@@ -44,7 +44,7 @@ const { Title, Text } = Typography;
 const { Meta } = Card;
 interface imgCardCarousel {
   url: string;
-  rating: string;
+  rating: number;
   price: string;
   description: string;
 }
@@ -55,37 +55,37 @@ const Home: React.FC = () => {
   const imgCardCarousel: imgCardCarousel[] = [
     {
       url: '/potrait1.jpg',
-      rating: '4.9',
+      rating: 4.5,
       price: '$285',
       description: 'Bali Tour Package'
     },
     {
       url: '/potrait2.jpg',
-      rating: '4',
+      rating: 4,
       price: '$340',
       description: 'Baliiiii'
     },
     {
       url: '/potrait3.jpg',
-      rating: '3.5',
+      rating: 3.5,
       price: '$200',
       description: 'wasadasd',
     },
     {
       url: '/potrait4.jpg',
-      rating: '2.0',
+      rating: 2,
       price: '$100',
       description: 'awdjkgsnskfjn'
     },
     {
       url: '/potrait5.jpg',
-      rating: '1.0',
+      rating: 1,
       price: '$500',
       description: 'edsdimid'
     },
     {
       url: '/potrait6.jpg',
-      rating: '4.3',
+      rating: 4.5,
       price: '$100',
       description: 'bromo'
     },
@@ -104,7 +104,7 @@ const Home: React.FC = () => {
 
 
         {/* batas percobaan atas */}
-        <div className="container">
+        <div className="container mb-0" style={{ backgroundColor: 'tomato' }}>
 
           <Swiper
 
@@ -113,6 +113,7 @@ const Home: React.FC = () => {
             centeredSlides={true}
             loop={true}
             slidesPerView={3}
+
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
@@ -132,12 +133,12 @@ const Home: React.FC = () => {
               return (
                 <SwiperSlide key={index}>
                   <div className='relative' style={{ borderRadius: '30px' }}>
-
                     <img src={content.url} alt="" />
-                    <p className='absolute  p-3 m-2' style={{ backgroundColor: 'rgba(0, 71, 79, 0.7)', borderRadius: '20px', top: '0', left: '0', color: 'white' }}>
-                      {content.rating}
+                    <p className='absolute  p-3 m-2  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20' style={{ borderRadius: '20px', top: '0', left: '0', color: 'white' }}>
+
+                      <Rate allowHalf defaultValue={content.rating} />
                     </p>
-                    <div className='absolute  p-3  m-2' style={{ backgroundColor: 'rgba(0, 71, 79, 0.7)', borderRadius: '20px', bottom: '0', left: '0', width: '80%', color: 'white' }}>
+                    <div className='absolute  p-3  m-2 left-0 bottom-0 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20' style={{ color: 'white', fontWeight: 'bold', width: '80%', borderRadius: '17px' }}>
                       <p>{content.price}</p>
                       <p>{content.description}</p>
                     </div></div>
@@ -150,12 +151,10 @@ const Home: React.FC = () => {
         </div>
         {/* batas percobaan bawah */}
 
-
-
-
-        <button className='btn' style={{ color: 'white', }}>wasd</button>
-
-
+        <div style={{ backgroundColor: 'tomato' }}>
+          <button className='btn btn-lg' style={{ color: 'white', borderRadius: '20px', width: '20%', margin: '0 auto' }}>View More</button>
+        </div>
+        {/* <div className='absolute  p-3  m-2' style={{ backgroundColor: 'rgba(0, 71, 79, 0.7)', borderRadius: '20px', bottom: '0', left: '0', width: '80%', color: 'white' }}> */}
 
 
 
