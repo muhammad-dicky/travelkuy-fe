@@ -2,12 +2,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Posts from './posts/page'
-import { Button, Card, Carousel, Col, DatePicker, Menu, Modal, Row, Space, Typography, theme, Radio, Rate } from 'antd'
+import { Button, Card, Carousel, Col, DatePicker, Menu, Modal, Row, Space, Typography, theme, Radio, Rate, Avatar } from 'antd'
 import Layout, { Content, Footer, Header } from 'antd/es/layout/layout'
 import Sider from 'antd/es/layout/Sider'
 import { grey } from '@ant-design/colors'
 import { useState, useEffect, useRef } from 'react'
-import { AlignRightOutlined, ArrowDownOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons'
+import { AlignRightOutlined, ArrowDownOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined, UserOutlined } from '@ant-design/icons'
 import dynamic from 'next/dynamic'
 import HeaderHero from './components/index/HeaderHero'
 import CardList from './components/Posts/CardList'
@@ -36,60 +36,36 @@ import slide_image_3 from './assets/images/card1.jpg';
 import slide_image_4 from './assets/images/card1.jpg';
 import slide_image_5 from './assets/images/card1.jpg';
 import slide_image_6 from './assets/images/card1.jpg';
-import slide_image_7 from './assets/images/card1.jpg';
+import { CardOurDestination } from './components/index/CardOurDestination'
 
 
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
-interface imgCardCarousel {
-  url: string;
-  rating: number;
-  price: string;
+interface reviewItems {
+  profile: React.ReactNode;
+  name: string;
+  status: string;
   description: string;
 }
 
 
 const Home: React.FC = () => {
 
-  const imgCardCarousel: imgCardCarousel[] = [
+  const reviewItems = [
     {
-      url: '/potrait1.jpg',
-      rating: 4.5,
-      price: '$285',
-      description: 'Bali Tour Package'
+      profile: <UserOutlined />,
+      name: 'Donald Sullivan',
+      status: 'Founder Fike',
+      description: 'This travel website is very informatife and easy to use. i like how they present various destination options and travel packages with clear details. Offerin pictures and destination descriptions helps me decide where i want to visit. Additionally, the ability to compare prices and reviews from other users is very helpful in decision making.'
     },
     {
-      url: '/potrait2.jpg',
-      rating: 4,
-      price: '$340',
-      description: 'Baliiiii'
-    },
-    {
-      url: '/potrait3.jpg',
-      rating: 3.5,
-      price: '$200',
-      description: 'wasadasd',
-    },
-    {
-      url: '/potrait4.jpg',
-      rating: 2,
-      price: '$100',
-      description: 'awdjkgsnskfjn'
-    },
-    {
-      url: '/potrait5.jpg',
-      rating: 1,
-      price: '$500',
-      description: 'edsdimid'
-    },
-    {
-      url: '/potrait6.jpg',
-      rating: 4.5,
-      price: '$100',
-      description: 'bromo'
-    },
-  ];
+      profile: <UserOutlined />,
+      name: 'Muhammad Dicky',
+      status: 'Web Programmer',
+      description: 'jadi ceritanya ini adalah sebuah review dari sebuah web yang udah aku buat dengan data dummy tapi bentuknya sudah terformat dengan map sehingga ntar tinggal panggil aja data dari database'
+    }
+  ]
 
 
   return (
@@ -100,70 +76,56 @@ const Home: React.FC = () => {
         <CardImage />
         <MidCard />
         <CardImageTitleDestination />
+        <CardOurDestination />
 
 
 
-        {/* batas percobaan atas */}
-
-        <div className="container mb-0 " style={{ height: '500px' }}>
-
-          <Swiper
-
-            effect={'coverflow'}
-            grabCursor={true}
-            centeredSlides={true}
-            loop={true}
-            slidesPerView={3}
-
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2.5,
-            }}
-            pagination={{ el: '.swiper-pagination', clickable: true }}
-            navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-              enabled: true
-            }}
-            modules={[EffectCoverflow, Pagination, Navigation]}
-            className="swiper_container"
-          >
-            {imgCardCarousel.map((content, index) => {
-              return (
-                <SwiperSlide key={index}>
-                  <div className='relative' style={{ borderRadius: '30px' }}>
-                    <img src={content.url} alt="" />
-                    <p className='absolute  p-3 m-2  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20' style={{ borderRadius: '20px', top: '0', left: '0', color: 'white' }}>
-
-                      <Rate allowHalf defaultValue={content.rating} />
-                    </p>
-                    <div className='absolute  p-3  m-2 left-0 bottom-0 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20' style={{ color: 'white', fontWeight: 'bold', width: '80%', borderRadius: '17px' }}>
-                      <p>{content.price}</p>
-                      <p>{content.description}</p>
-                    </div></div>
-                </SwiperSlide>
-              );
-            })}
+        <Carousel autoplay className='mt-60'>
+          {reviewItems.map((content, index) => (
+            <div key={index}>
+              <Row >
+                <Col span={2}></Col>
+                <Col span={20} style={{ margin: '0 auto' }}>
+                  <Row>
+                    <Avatar size="large" style={{ margin: '0 auto' }} icon={content.profile} />
+                    <div className='text-center' style={{ margin: '0 auto' }}>
+                      <b >{content.name}</b>
+                      <p>{content.status}</p>
+                      <p >{content.description}</p>
+                    </div>
+                  </Row>
+                </Col>
+                <Col span={2}></Col>
+              </Row>
+            </div>
+          ))}
 
 
-          </Swiper>
-        </div>
 
-
-        {/* batas percobaan bawah */}
-
-
-        <button className='btn btn-lg' style={{ color: 'white', borderRadius: '20px', width: '20%', margin: '0 auto', }}>View More</button>
-
-        {/* <div className='absolute  p-3  m-2' style={{ backgroundColor: 'rgba(0, 71, 79, 0.7)', borderRadius: '20px', bottom: '0', left: '0', width: '80%', color: 'white' }}> */}
+        </Carousel>
 
 
 
 
 
+        {/* <div>
+            <Row >
+              <Col span={2}></Col>
+              <Col span={20} style={{ margin: '0 auto' }}>
+                <Row>
+                  <Avatar size="large" style={{ margin: '0 auto' }} icon={<UserOutlined />} />
+                  <div className='text-center' style={{ margin: '0 auto' }}>
+                    <b >Donald Sullivan</b>
+                    <p>Founder Fike</p>
+                    <p >This travel website is very informatife and easy to use. i like how they present various destination options and travel packages with clear details. Offerin pictures and destination descriptions helps me decide where i want to visit. Additionally, the ability to compare prices and reviews from other users is very helpful in decision making.</p>
+                  </div>
+                </Row>
+              </Col>
 
+              <Col span={2}></Col>
+
+            </Row>
+          </div> */}
 
 
 
