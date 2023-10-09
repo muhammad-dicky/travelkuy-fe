@@ -104,7 +104,8 @@ const Home: React.FC = () => {
 
 
         {/* batas percobaan atas */}
-        <div className="container mb-0" style={{ backgroundColor: 'tomato' }}>
+
+        <div className="container mb-0 " style={{ height: '500px' }}>
 
           <Swiper
 
@@ -149,11 +150,13 @@ const Home: React.FC = () => {
 
           </Swiper>
         </div>
+
+
         {/* batas percobaan bawah */}
 
-        <div style={{ backgroundColor: 'tomato' }}>
-          <button className='btn btn-lg' style={{ color: 'white', borderRadius: '20px', width: '20%', margin: '0 auto' }}>View More</button>
-        </div>
+
+        <button className='btn btn-lg' style={{ color: 'white', borderRadius: '20px', width: '20%', margin: '0 auto', }}>View More</button>
+
         {/* <div className='absolute  p-3  m-2' style={{ backgroundColor: 'rgba(0, 71, 79, 0.7)', borderRadius: '20px', bottom: '0', left: '0', width: '80%', color: 'white' }}> */}
 
 
