@@ -22,6 +22,7 @@ import { title } from 'process'
 import { MidCard } from './components/index/MidCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -30,57 +31,81 @@ import 'swiper/css/navigation';
 // import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 
-import slide_image_1 from './assets/images/potrait1.jpg';
-import slide_image_2 from './assets/images/card1.jpg';
-import slide_image_3 from './assets/images/card1.jpg';
-import slide_image_4 from './assets/images/card1.jpg';
-import slide_image_5 from './assets/images/card1.jpg';
-import slide_image_6 from './assets/images/card1.jpg';
 import { CardOurDestination } from './components/index/CardOurDestination'
+import { ReviewItem } from './components/index/ReviewItem'
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+import axios from 'axios'
+import axiosInstance from './lib/axios'
+import { ReviewList } from './components/API/ReviewList'
 
 
+
+
+
+const queryClient = new QueryClient();
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
+
 interface reviewItems {
-  profile: React.ReactNode;
+  id: number;
   name: string;
   status: string;
   description: string;
 }
-
+// interface reviewItems {
+//   profile: React.ReactNode;
+//   name: string;
+//   status: string;
+//   description: string;
+// }
 
 const Home: React.FC = () => {
+  const [reviews, setReviews] = useState([]);
 
-  const reviewItems = [
-    {
-      profile: <UserOutlined />,
-      name: 'Donald Sullivan',
-      status: 'Founder Fike',
-      description: 'This travel website is very informatife and easy to use. i like how they present various destination options and travel packages with clear details. Offerin pictures and destination descriptions helps me decide where i want to visit. Additionally, the ability to compare prices and reviews from other users is very helpful in decision making.'
-    },
-    {
-      profile: <UserOutlined />,
-      name: 'Muhammad Dicky',
-      status: 'Web Programmer',
-      description: 'jadi ceritanya ini adalah sebuah review dari sebuah web yang udah aku buat dengan data dummy tapi bentuknya sudah terformat dengan map sehingga ntar tinggal panggil aja data dari database'
-    }
-  ]
+  const fetchReviews = async () => {
+
+    const reviewsResponse = await axiosInstance.get("/reviews")
+    setReviews(reviewsResponse.data)
+
+  }
+
+  const renderReviews = () => {
+    return reviews.map((review: reviewItems) => {
+      return (
+        <ul key={review.id.toString()}>
+          <li>{review.id}</li>
+          <li>{review.name}</li>
+          <li>{review.status}</li>
+          <li>{review.description}</li>
+        </ul>
+      )
+    })
+  }
+
+  useEffect(() => {
+    fetchReviews();
+  }, []);
 
 
   return (
     <>
-      <Layout>
-        <HeaderHero />
-        <CardImageTitle />
-        <CardImage />
-        <MidCard />
-        <CardImageTitleDestination />
-        <CardOurDestination />
+      <QueryClientProvider client={queryClient}>
+        <Layout>
+          <HeaderHero />
+          <CardImageTitle />
+          <CardImage />
+          <MidCard />
+          <CardImageTitleDestination />
+          <CardOurDestination />
+          <ReviewItem />
+
+          <div>
+            {renderReviews()}
+          </div>
 
 
-
-        <Carousel autoplay className='mt-60'>
+          {/* <Carousel autoplay className='mt-60 mb-60'>
           {reviewItems.map((content, index) => (
             <div key={index}>
               <Row >
@@ -100,50 +125,20 @@ const Home: React.FC = () => {
             </div>
           ))}
 
-
-
-        </Carousel>
-
+        </Carousel> */}
 
 
 
 
-        {/* <div>
-            <Row >
-              <Col span={2}></Col>
-              <Col span={20} style={{ margin: '0 auto' }}>
-                <Row>
-                  <Avatar size="large" style={{ margin: '0 auto' }} icon={<UserOutlined />} />
-                  <div className='text-center' style={{ margin: '0 auto' }}>
-                    <b >Donald Sullivan</b>
-                    <p>Founder Fike</p>
-                    <p >This travel website is very informatife and easy to use. i like how they present various destination options and travel packages with clear details. Offerin pictures and destination descriptions helps me decide where i want to visit. Additionally, the ability to compare prices and reviews from other users is very helpful in decision making.</p>
-                  </div>
-                </Row>
-              </Col>
 
-              <Col span={2}></Col>
 
-            </Row>
-          </div> */}
+        </Layout >
+        <Footer style={{ color: "white", backgroundColor: 'black' }}>in footer</Footer>
 
 
 
-        <Row className='mt-20 m-10 ml-20' >
-          <Col className='ContentLeft' span={12}>
-            <p>20-24 DECEMBER - 4 DAY 3 NIGHT</p>
-          </Col>
-          <Col className='ContentRight hidden md:block  lg:block' span={12}>wasdasd</Col>
-        </Row>
 
-      </Layout >
-      <Footer style={{ color: "grey" }}>in footer</Footer>
-
-
-
-      <div style={{ height: 2000 }}></div>
-
-
+      </QueryClientProvider>
     </>
   )
 }
