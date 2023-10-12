@@ -1,3 +1,4 @@
+'use client'
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Carousel, Col, Row } from 'antd'
 import React from 'react'
@@ -21,13 +22,18 @@ interface ReviewListProps {
 }
 
 export const ReviewItem: React.FC<ReviewListProps> = ({ reviews }) => {
+    // const { data: dataReview, refetch: reviewRefetch } = useReviews({
+    //     onError: () => {
+    //         console.log('error reviews')
+    //     }
+    // })
 
     return (
         <>
-            {reviews.map((review: reviewItems) => (
+            {/* {dataReview?.map((review: reviewItems) => (
                 <div key={review.id.toString()}>
                     <div>
-                        {/* Render review content here */}
+                        
                         <img src={review.img} alt={review.name} width={100} height={100} style={{ margin: '0 auto', borderRadius: '100%' }} />
                         <div className='text-center' style={{ margin: '0 auto' }}>
                             <b>{review.name}</b>
@@ -36,7 +42,7 @@ export const ReviewItem: React.FC<ReviewListProps> = ({ reviews }) => {
                         </div>
                     </div>
                 </div>
-            ))}
+            ))} */}
 
         </>
     )
