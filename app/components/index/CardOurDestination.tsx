@@ -84,6 +84,7 @@ export const CardOurDestination: React.FC = () => {
                     modules={[EffectCoverflow, Pagination, Navigation]}
                     className="swiper_container"
                 >
+
                     {imgCardCarousel.map((content, index) => {
                         return (
                             <SwiperSlide key={index}>
@@ -100,6 +101,7 @@ export const CardOurDestination: React.FC = () => {
                             </SwiperSlide>
                         );
                     })}
+
                 </Swiper>
             </div>
             <button className='btn btn-lg z-10' style={{ color: 'white', borderRadius: '20px', width: '20%', margin: '0 auto', }}>View More</button>
