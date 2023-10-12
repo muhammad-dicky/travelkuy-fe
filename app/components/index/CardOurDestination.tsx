@@ -23,37 +23,37 @@ export const CardOurDestination: React.FC = () => {
 
     const imgCardCarousel: imgCardCarousel[] = [
         {
-            url: '/potrait1.jpg',
+            url: 'potrait1.jpg',
             rating: 4.5,
             price: '$285',
             description: 'Bali Tour Package'
         },
         {
-            url: '/potrait2.jpg',
+            url: 'potrait2.jpg',
             rating: 4,
             price: '$340',
             description: 'Baliiiii'
         },
         {
-            url: '/potrait3.jpg',
+            url: 'potrait3.jpg',
             rating: 3.5,
             price: '$200',
             description: 'wasadasd',
         },
         {
-            url: '/potrait4.jpg',
+            url: 'potrait4.jpg',
             rating: 2,
             price: '$100',
             description: 'awdjkgsnskfjn'
         },
         {
-            url: '/potrait5.jpg',
+            url: 'potrait5.jpg',
             rating: 1,
             price: '$500',
             description: 'edsdimid'
         },
         {
-            url: '/potrait6.jpg',
+            url: 'potrait6.jpg',
             rating: 4.5,
             price: '$100',
             description: 'bromo'
@@ -91,7 +91,7 @@ export const CardOurDestination: React.FC = () => {
                                     <img src={content.url} alt="" />
                                     <p className='absolute  p-3 m-2  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20' style={{ ...cardStyle, top: '0', left: '0' }}>
 
-                                        <Rate allowHalf defaultValue={content.rating} />
+                                        <Rate disabled defaultValue={content.rating} />
                                     </p>
                                     <div className='absolute  p-3  m-2 left-0 bottom-0 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20' style={{ ...cardStyle, width: '80%' }}>
                                         <p>{content.price}</p>
