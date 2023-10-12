@@ -1,7 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
-# Travelkuy Frontend
 
 ![Travelkuy Frontend]
 ![image](https://github.com/muhammad-dicky/travelkuy-fe/assets/58357765/9b5edc8a-7e31-42d8-9d8f-01eaa0f99197)
