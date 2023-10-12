@@ -1,6 +1,5 @@
 ## Getting Started
 
-![Travelkuy Frontend]
 ![image](https://github.com/muhammad-dicky/travelkuy-fe/assets/58357765/9b5edc8a-7e31-42d8-9d8f-01eaa0f99197)
 
 
