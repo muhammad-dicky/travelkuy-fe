@@ -5,6 +5,7 @@ import { useProductById } from '../components/API/homePage/useProducts';
 import { useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import axiosInstance from '../lib/axios';
+import { Test } from '../components/index/Navbar';
 interface ProductsQueryOptions {
     onError: any,
     key: string,
@@ -36,8 +37,10 @@ const Product = () => {
     return (
 
         <>
+
+            <Test />
             {/* <div>ini halaman destination dengan id : {id}</div> */}
-            ini halaman destination
+            ini halaman destinationwasdasdasdwasdsd
             <Link href="/">Kembali ke halaman Index</Link>
         </>
     )

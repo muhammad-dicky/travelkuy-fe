@@ -47,7 +47,7 @@ export const CardOurDestination: React.FC = () => {
 
                     <SwiperSlide onClick={(event: React.MouseEvent<HTMLElement>) => handleViewDetail(product)} key={product.id}>
                         <div className='relative' style={{ borderRadius: '30px' }}>
-                            <img src={product.img} alt="" />
+                            <img src={product.img[0]} alt="" />
                             <p className='absolute  p-3 m-2  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20' style={{ ...cardStyle, top: '0', left: '0' }}>
 
                                 <Rate disabled defaultValue={product.rating} />

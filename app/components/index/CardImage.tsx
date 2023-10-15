@@ -38,6 +38,8 @@ export const CardImageTitleDestination = () => {
                 <Title style={{ fontWeight: 'bold' }}>Our tourist destination</Title>
             </Col>
             <Col className='ml-1' span={8} md={9} lg={8}>
+
+
                 Our tourist destinations offer an unrivaled blend of natural beauty and cultural richness.
             </Col>
             <Col span={4}></Col>

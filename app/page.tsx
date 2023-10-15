@@ -40,6 +40,7 @@ import { useReviews } from './components/API/homePage/useReviews'
 import { useProductById, useProducts } from './components/API/homePage/useProducts'
 import { Product, Review } from './components/API/types'
 import { useParams } from 'next/navigation'
+import { Test } from './components/index/Navbar'
 
 
 
@@ -95,6 +96,8 @@ const Home: React.FC = () => {
     <>
 
       <Layout>
+
+
         <HeaderHero />
         <CardImageTitle />
         <CardImage />
