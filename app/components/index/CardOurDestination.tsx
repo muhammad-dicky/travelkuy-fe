@@ -55,7 +55,7 @@ export const CardOurDestination: React.FC = () => {
 
                             <div className='absolute  p-3  m-2 left-0 bottom-0 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20' style={{ ...cardStyle, width: '80%' }}>
                                 <p>{product.price}</p>
-                                <p>{product.description}</p>
+                                <p>{product.name}</p>
                             </div></div>
                     </SwiperSlide>
                     {/* </Button> */}
