@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { useProductById } from '../../components/API/homePage/useProducts';
 import { Product } from '@/app/components/API/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Button, Col, Rate, Row, Space, Typography } from 'antd';
+import { Button, Card, Col, Rate, Row, Space, Typography } from 'antd';
 import { useRouter } from 'next/router';
 import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules'
 import Image from 'next/image'
@@ -41,6 +41,11 @@ interface CardImageBigProps {
 }
 const cardStyle = {
     borderRadius: '10px',
+}
+const iconStyle = {
+    marginLeft: '10px',
+    cursor: 'pointer',
+    color: 'black',
 
 }
 
@@ -103,8 +108,18 @@ const Page = async ({ params }: {
 
                 </Col>
                 <Col span={9}>
-                    <IosShareIcon />Share <FavoriteBorderIcon />Save
-                    <LoveButton />
+                    <Row >
+                        <div style={iconStyle}>
+                            <IosShareIcon />Share</div>
+                        <div style={iconStyle}>
+                            <LoveButton /></div></Row>
+
+                    <Card style={{ width: 300 }}>
+                        <p>4 days - 3 nights</p>
+                        <p>Bali to Nusa Penida</p>
+                        <p>From</p>
+                        <p>$572USD</p>
+                    </Card>
                 </Col>
             </Row>
 
