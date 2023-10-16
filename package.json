@@ -22,6 +22,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-slick": "^0.29.0",
+    "shadcn-ui": "^0.4.1",
     "slick-carousel": "^1.8.1",
     "swiper": "^10.3.1"
   },

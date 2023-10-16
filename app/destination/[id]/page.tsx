@@ -115,11 +115,18 @@ const Page = async ({ params }: {
                             <LoveButton /></div></Row>
 
                     <Card style={{ width: 300 }}>
-                        <p>4 days - 3 nights</p>
-                        <p>Bali to Nusa Penida</p>
-                        <p>From</p>
-                        <p>$572USD</p>
+                        <div>
+                            <div className='relative h-32 w-32'>
+                                <div className='absolute inset-y-0 right-0'>
+                                    <p>div pertama</p></div>
+                            </div>
+                            <div className='relative '>
+                                <div className='absolute inset-y-0 left-0'>
+                                    <p>div kedua</p></div>
+                            </div>
+                        </div>
                     </Card>
+
                 </Col>
             </Row>
 
