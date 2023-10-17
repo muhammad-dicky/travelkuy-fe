@@ -107,6 +107,9 @@ const Home: React.FC = () => {
         <CardOurDestination />
         <ReviewItem />
 
+        <Link href={'/destination'}>
+          <Button>wasd</Button></Link>
+
 
 
       </Layout >

@@ -57,7 +57,7 @@ export default function HeaderHero() {
                     }} ><p suppressHydrationWarning >{date.toLocaleString()}</p>
                     </div>
                     <Title style={{ ...titleStyle, fontFamily: "sans-serif", fontSize: "50px" }}>JOURNEY <br />BALI ISLAND</Title>
-                    <Button style={{ borderRadius: "20px", backgroundColor: "white", fontWeight: "bold" }}>BOOKING NOW</Button>
+                    <Button style={{ borderRadius: "20px", backgroundColor: "#1e1e1e", fontWeight: "bold", color: 'white', height: '40px' }}>BOOKING NOW</Button>
 
                 </Col>
                 <Col span={4}>

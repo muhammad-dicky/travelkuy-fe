@@ -189,3 +189,13 @@ body {
 .swiper-pagination .swiper-pagination-bullet-active {
     background: var(--primary);
 }
+
+
+.login {
+    background-image: url('/card2.jpg');
+    /* Ganti '/path-to-your-image.jpg' dengan path ke gambar Anda */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+}
