@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { useProductById } from '../../components/API/homePage/useProducts';
 import { Product } from '@/app/components/API/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Button, Card, Col, Rate, Row, Space, Typography } from 'antd';
+import { Button, Card, Col, Rate, Row, Space, Tabs, Typography } from 'antd';
 import { useRouter } from 'next/router';
 import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules'
 import Image from 'next/image'
@@ -17,6 +17,11 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { LoveButton } from '@/app/components/detailProduct/detailProductComponent';
+import StarIcon from '@mui/icons-material/Star';
+import type { TabsProps } from 'antd';
+import { TabsDescription } from '../page';
+import { Footer } from '@/app/components/index/Footer';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 
 interface ProductsQueryOptions {
@@ -77,18 +82,19 @@ const Page = async ({ params }: {
             <Navbar />
             <div className='container mx-auto px-5 py-0 lg:px-32 lg:pt-24'>
                 <p className='text-5xl' style={{ fontWeight: 'bold', color: '#181818' }}>{productDetail.name}</p>
-                <Row style={{ fontWeight: 'bold', color: '#181818,', marginTop: '10px' }}>
-                    <Space>
+                <Row className='text-lg md:text-xl' style={{ fontWeight: 'bold', color: '#181818,', marginTop: '10px' }}>
+                    <Space >
                         <p><FmdGoodIcon /> {productDetail.categories[0]}</p>
                         <div><LocalOfferIcon />{productDetail.categories[1]}</div>
                     </Space>
                 </Row>
-
+                <Link href='/'>
+                    <h1 className='text-black font-bold' ><ArrowBackIosIcon />Homes</h1></Link>
             </div>
 
 
             <Row >
-                <Col span={15} className='hidden sm:block'>
+                <Col span={20} md={14} className='hidden sm:block ml-10 md:ml-0'>
                     <div className="container mx-auto px-5 py-0 lg:px-32 lg:pt-0">
                         <div className="flex">
                             <div className="w-1/2 p-4">
@@ -107,37 +113,39 @@ const Page = async ({ params }: {
                     </div>
 
                 </Col>
-                <Col span={9}>
+
+
+
+                <Col span={22} md={10} className='ml-20 md:ml-0'>
                     <Row >
-                        <div style={iconStyle}>
+                        <div style={iconStyle} >
                             <IosShareIcon />Share</div>
-                        <div style={iconStyle}>
+                        <div style={iconStyle} >
                             <LoveButton /></div></Row>
+                    <div className="card w-96 mt-10" style={{ border: "1px solid grey", width: '80%' }}>
+                        <div className="card-body" >
+                            <h1 className="card-title text-black text-3xl font-bold">4 days - 3 nights</h1>
+                            <h2>Bali to Nusa Penida</h2>
+                            <div className='text-right'>
+                                <StarIcon style={{ color: '#FFCD00' }} />4.72 <b>.</b> 60 reviews</div>
+                            <p >From</p>
+                            <h1 className='text-black'>$ <span className='font-bold text-5xl'>572</span> USD</h1>
 
-                    <Card style={{ width: 300 }}>
-                        <div>
-                            <div className='relative h-32 w-32'>
-                                <div className='absolute inset-y-0 right-0'>
-                                    <p>div pertama</p></div>
-                            </div>
-                            <div className='relative '>
-                                <div className='absolute inset-y-0 left-0'>
-                                    <p>div kedua</p></div>
-                            </div>
+                            <Button className='btn-primary' style={{ borderRadius: '20px' }}>Book now</Button>
                         </div>
-                    </Card>
-
+                    </div>
                 </Col>
-            </Row>
+            </Row >
+
+
+            <TabsDescription />
+            <div className='px-5 py-60 md:px-40' style={{ color: 'grey' }}>
+                <h1> {productDetail.description}</h1>
+            </div>
 
 
 
-
-            <h1>ini adalah data {productDetail.id}</h1>
-            <h1>ini adalah data {productDetail.img}</h1>
-            <h1>ini adalah data {productDetail.price}</h1>
-            <h1>ini adalah data {productDetail.description}</h1>
-            <Button href='/'>balik home</Button>
+            <Footer />
         </>
     );
 }

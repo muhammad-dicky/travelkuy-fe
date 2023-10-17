@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Posts from './posts/page'
 import { Button, Card, Carousel, Col, DatePicker, Menu, Modal, Row, Space, Typography, theme, Radio, Rate, Avatar } from 'antd'
-import Layout, { Content, Footer, Header } from 'antd/es/layout/layout'
+import Layout, { Content, Header } from 'antd/es/layout/layout'
 import Sider from 'antd/es/layout/Sider'
 import { grey } from '@ant-design/colors'
 import { useState, useEffect, useRef } from 'react'
@@ -41,6 +41,7 @@ import { useProductById, useProducts } from './components/API/homePage/useProduc
 import { Product, Review } from './components/API/types'
 import { useParams } from 'next/navigation'
 import { Test } from './components/index/Navbar'
+import { Footer } from './components/index/Footer'
 
 
 
@@ -106,13 +107,11 @@ const Home: React.FC = () => {
         <CardOurDestination />
         <ReviewItem />
 
-        <Link href={'/destination'}>
-          <Button>wasd</Button></Link>
 
 
       </Layout >
-      <Footer style={{ color: "white", backgroundColor: 'black' }}>in footer</Footer>
-
+      {/* <Footer style={{ color: "white", backgroundColor: 'black' }}>in footer</Footer> */}
+      <Footer />
 
 
 
