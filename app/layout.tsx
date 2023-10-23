@@ -3,7 +3,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Test } from './components/index/Navbar'
+import { SessionContextProvider, Session, SupabaseClient } from '@supabase/auth-helpers-react'
+
 
 
 // export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <>
+
       <QueryClientProvider client={queryClient}>
 
         <html lang="en">

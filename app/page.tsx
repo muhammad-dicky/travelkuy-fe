@@ -40,8 +40,8 @@ import { useReviews } from './components/API/homePage/useReviews'
 import { useProductById, useProducts } from './components/API/homePage/useProducts'
 import { Product, Review } from './components/API/types'
 import { useParams } from 'next/navigation'
-import { Test } from './components/index/Navbar'
 import { Footer } from './components/index/Footer'
+import AuthForm from './login/auth-form'
 
 
 
@@ -97,9 +97,8 @@ const Home: React.FC = () => {
     <>
 
       <Layout>
-
-
         <HeaderHero />
+        {/* <AuthForm /> */}
         <CardImageTitle />
         <CardImage />
         <MidCard />
