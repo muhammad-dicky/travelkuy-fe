@@ -1,0 +1,3 @@
+https://supabase.com/docs/guides/auth/auth-helpers/nextjs?language=ts
+
+baru sampe di Authentication (pilih Client-side / Server-side

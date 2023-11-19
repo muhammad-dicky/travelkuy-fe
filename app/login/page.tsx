@@ -1,35 +1,53 @@
 'use client'
-import { Auth } from '@supabase/auth-ui-react'
-import { ThemeSupa } from '@supabase/auth-ui-shared'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-// import { Database } from './database.types'
-import styles from './authForm.module.css'
 
-export default function AuthForm() {
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+
+// import type { Database } from '@/lib/database.types'
+
+export default function Login() {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const router = useRouter()
     const supabase = createClientComponentClient()
 
+    const handleSignUp = async () => {
+        await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+                emailRedirectTo: `${location.origin}/auth/callback`,
+            },
+        })
+        router.refresh()
+    }
+
+    const handleSignIn = async () => {
+        await supabase.auth.signInWithPassword({
+            email,
+            password,
+        })
+        router.refresh()
+    }
+
+    const handleSignOut = async () => {
+        await supabase.auth.signOut()
+        router.refresh()
+    }
+
     return (
-        <div className='mx-52 my-20'>
-            <Auth
-                supabaseClient={supabase}
-                // view="magic_link"
-                appearance={{ theme: ThemeSupa }}
-                theme="dark"
-                // showLinks={false}
-                providers={['google']}
-                redirectTo="http://localhost:3000/success/"
-            /></div>
+        <>
+            <input name="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+            <input
+                type="password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+            />
+            <button onClick={handleSignUp}>Sign up</button>
+            <button onClick={handleSignIn}>Sign in</button>
+            <button onClick={handleSignOut}>Sign out</button>
+        </>
     )
 }
-// import AuthForm from './auth-form'
-
-// export default function Home() {
-//     return (
-//         <div className="row">
-//             <h1>percobaan ini halaman login</h1>
-//             <div className="col-6 auth-widget">
-//                 {/* <AuthForm /> */}
-//             </div>
-//         </div>
-//     )
-// }
