@@ -41,7 +41,6 @@ import { useProductById, useProducts } from './components/API/homePage/useProduc
 import { Product, Review } from './components/API/types'
 import { useParams } from 'next/navigation'
 import { Footer } from './components/index/Footer'
-import AuthForm from './sign-in/auth-form'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { Database } from '@/app/lib/database.types'

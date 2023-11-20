@@ -57,7 +57,7 @@ export const Navbar = () => {
                         </Menu>
                     </Col>
                     <Col span={2} className='hidden md:block'>
-                        <Link href={'login'}>
+                        <Link href={'/auth-server-action'}>
                             <Button style={buttonStyle} >Sign up</Button></Link>
                     </Col>
                     {/* INI MODAL UNTUK MOBILE */}
