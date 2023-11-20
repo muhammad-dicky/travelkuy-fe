@@ -6,11 +6,24 @@ import readUserSession from "@/lib/actions";
 import { redirect } from "next/navigation";
 import SignOut from "./components/SignOut";
 import { readTodo } from "./actions";
+import { toast } from "@/components/ui/use-toast";
+
 
 export default async function Page() {
 	
 
 	const {data} = await readUserSession();
+
+
+	try {
+		const userSession = await readUserSession();
+		console.log('user session adalah: ', userSession)
+	} catch (error) {
+		console.log('error saat baca sesion :', error)
+	}
+
+
+
 	if(!data.session){
 		return redirect('/auth-server-action')
 	}

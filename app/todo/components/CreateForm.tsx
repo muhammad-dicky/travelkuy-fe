@@ -62,6 +62,7 @@ export default function CreateForm() {
 						<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
 							{error.message}
 							{error.code}
+							{console.log(error.message)}
 						
 						</pre>
 					),

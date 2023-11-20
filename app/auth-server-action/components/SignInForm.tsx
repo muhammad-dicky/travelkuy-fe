@@ -18,6 +18,11 @@ import { cn } from "@/lib/utils";
 import { signInWithEmailAndPassword } from "../actions";
 import { useTransition } from "react";
 
+
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+
 const FormSchema = z.object({
 	email: z.string().email(),
 	password: z.string().min(1, {
@@ -46,7 +51,8 @@ export default  function SignInForm() {
 			const {error} = JSON.parse(result);
 	
 			if(error?.message){
-				toast({
+				toast(
+					{
 					title: "You submitted the following values:",
 					description: (
 						<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
@@ -55,9 +61,13 @@ export default  function SignInForm() {
 							</code>
 						</pre>
 					),
-				});
+				}
+				
+				);
+				{console.log(error.message)}
 			}else{
-				toast({
+				toast(
+					{
 					title: "You submitted the following values:",
 					description: (
 						<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
@@ -66,7 +76,9 @@ export default  function SignInForm() {
 							</code>
 						</pre>
 					),
-				});
+				}
+				);
+				{console.log("login berhasil cuy!")}
 			}
 		})
 
@@ -75,7 +87,11 @@ export default  function SignInForm() {
 		
 	}
 
+
+	
+
 	return (
+		<>
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
@@ -122,7 +138,13 @@ export default  function SignInForm() {
 					SignIn 
 					<AiOutlineLoading3Quarters className={cn("animate-spin", {"hidden":!isPending})} />
 				</Button>
+
+
+				
 			</form>
 		</Form>
+
+		</>
+		
 	);
 }

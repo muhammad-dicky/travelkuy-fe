@@ -7,6 +7,13 @@ export default async function page() {
 
 	const {data} = await readUserSession()
 
+	try {
+		const userSession = await readUserSession();
+		console.log('user session adalah: ', userSession)
+	} catch (error) {
+		console.log('error saat baca sesion :', error)
+	}
+
 	if(data.session){
 		return redirect('/todo')
 	}
