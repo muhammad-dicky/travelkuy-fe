@@ -41,7 +41,10 @@ import { useProductById, useProducts } from './components/API/homePage/useProduc
 import { Product, Review } from './components/API/types'
 import { useParams } from 'next/navigation'
 import { Footer } from './components/index/Footer'
-import AuthForm from './login/auth-form'
+import AuthForm from './sign-in/auth-form'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
+import { Database } from '@/app/lib/database.types'
 
 
 
@@ -84,14 +87,19 @@ const cardStyle = {
 
 
 
-const Home: React.FC = () => {
+const Home: React.FC =  () => {
 
-
-
+// const supabase = createServerComponentClient({cookies});
+// const {
+//   data: {user},
+// } = await supabase.auth.getUser();
 
 
   // const {data} = useParams();
-
+  // const cookieStore = cookies()
+  // const supabase = createServerComponentClient<Database>({ cookies: () => cookieStore })
+  // const { data } = await supabase.from('todos').select()
+  // return <pre>{JSON.stringify(data, null, 2)}</pre>
 
   return (
     <>

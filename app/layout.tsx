@@ -1,9 +1,12 @@
-"use client"
+'use client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { SessionContextProvider, Session, SupabaseClient } from '@supabase/auth-helpers-react'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
+import AuthProvider from './components/AuthProvider'
 
 
 
@@ -13,11 +16,19 @@ import { SessionContextProvider, Session, SupabaseClient } from '@supabase/auth-
 // }
 const queryClient = new QueryClient();
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default  function RootLayout({children,}: {
+  children: React.ReactNode;
+ 
+})
+
+{
+
+  // const supabase = createServerComponentClient({cookies});
+  // const {
+  //   data:{session},
+  // } = await supabase.auth.getSession();
+
+
   return (
     <>
 
@@ -25,8 +36,8 @@ export default function RootLayout({
 
         <html lang="en">
           <body >
-
-            {children}
+<AuthProvider>
+            {children}</AuthProvider>
             </body>
         </html></QueryClientProvider>
     </>
